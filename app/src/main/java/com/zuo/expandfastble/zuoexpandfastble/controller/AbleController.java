@@ -4,6 +4,7 @@ import android.bluetooth.BluetoothGatt;
 
 import com.clj.fastble.data.BleDevice;
 import com.clj.fastble.exception.BleException;
+import com.zuo.expandfastble.blelib.base.callback.BaseBleCallBack;
 import com.zuo.expandfastble.blelib.base.controller.BaseControllerTools;
 import com.zuo.expandfastble.blelib.evnetbus_bean.BleDeviceBean;
 import com.zuo.expandfastble.zuoexpandfastble.device.Adevice;
@@ -18,7 +19,7 @@ import java.util.List;
  * @description: 描述
  * @version: 版本号
  */
-public class AbleController extends BaseControllerTools {
+public class AbleController extends BaseControllerTools{
 	// 连接的设备
 	private Adevice adevice;
 

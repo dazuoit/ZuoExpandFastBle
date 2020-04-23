@@ -4,8 +4,10 @@ import android.bluetooth.BluetoothGatt;
 
 import com.clj.fastble.data.BleDevice;
 import com.clj.fastble.exception.BleException;
+import com.zuo.expandfastble.blelib.base.callback.BaseBleCallBack;
 import com.zuo.expandfastble.blelib.base.controller.BaseControllerTools;
 import com.zuo.expandfastble.blelib.evnetbus_bean.BleDeviceBean;
+import com.zuo.expandfastble.zuoexpandfastble.B_BleCallBack;
 import com.zuo.expandfastble.zuoexpandfastble.device.Adevice;
 import com.zuo.expandfastble.zuoexpandfastble.device.Bdevice;
 
@@ -22,10 +24,16 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class BbleController extends BaseControllerTools {
 	private Map<String, Bdevice> mADevicesList = new ConcurrentHashMap<>();
+	private B_BleCallBack callBack;  //自己实现所需要的的回调
 
-	public boolean isBdevice(BleDevice bleDeviceBean){
+	public void setCallBack(B_BleCallBack callBack) {
+		this.callBack = callBack;
+	}
+
+	public boolean isBdevice(BleDevice bleDeviceBean) {
 		return "B00".equals(bleDeviceBean.getName());
 	}
+
 	@Override
 	public boolean checkEventTag(BleDeviceBean bleDeviceBean) {
 		//例如,每种设备的名称一致, A设备都叫A00,B设备都叫B00,B01  只要定义了这个,所有回调 除onScanStarted ()无需做判断了设备类型了
@@ -34,7 +42,10 @@ public class BbleController extends BaseControllerTools {
 
 	@Override
 	public void onScanStarted(boolean success) {
-
+		//比如页面需要这个onScanStarted
+		if (callBack != null) {
+			callBack.onScanStarted(success);
+		}
 	}
 
 	@Override
@@ -51,6 +62,7 @@ public class BbleController extends BaseControllerTools {
 	public void onLeScan(BleDevice bleDevice) {
 
 	}
+
 	@Override
 	public void release() {
 
@@ -123,7 +135,7 @@ public class BbleController extends BaseControllerTools {
 
 	@Override
 	public void onConnectSuccess(BleDevice bleDevice, BluetoothGatt gatt, int status) {
-		mADevicesList.put(bleDevice.getMac(),new Bdevice(bleDevice));
+		mADevicesList.put(bleDevice.getMac(), new Bdevice(bleDevice));
 	}
 
 	@Override
