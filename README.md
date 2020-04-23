@@ -18,7 +18,7 @@
  2, 子类 BaseControllerTools 需要重写checkEventTag(),此方法决定消息能不能分发特定的控制器,方法有详细描述  
  3,释放: MineBleManager.getInstance().release(); BleManager.getInstance().destroy();  
  
- ##此项目demo示例部分的代码,写的不是很规范,仅仅示例怎么用,如有代码洁癖的,请一步本人另一个项目懒人mvp
+ ## 此项目demo示例部分的代码,写的不是很规范,仅仅示例怎么用,如有代码洁癖的,请一步本人另一个项目懒人mvp
 
 
 
