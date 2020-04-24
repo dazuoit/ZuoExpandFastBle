@@ -6,7 +6,7 @@
 
 ## 此库的核心用运用eventbus 对Jasonchenlijian/FastBle 进行拓展  
 
- 使用 : implementation 'com.github.dazuoit:ZuoExpandFastBle:v1.1'  
+ 使用 : implementation 'com.github.dazuoit:ZuoExpandFastBle:1.1.1'  
  	implementation 'com.clj.fastble:FastBleLib:2.3.4'  
         implementation 'org.greenrobot:eventbus:3.2.0'  
 
