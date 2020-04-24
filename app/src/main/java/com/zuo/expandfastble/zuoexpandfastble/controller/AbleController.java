@@ -19,9 +19,18 @@ import java.util.List;
  * @description: 描述
  * @version: 版本号
  */
-public class AbleController extends BaseControllerTools{
+public class AbleController extends BaseControllerTools {
 	// 连接的设备
-	private Adevice adevice;
+	private Adevice adevice; //
+
+	public static AbleController getInstance() {
+		return AControllerToolsHolder.mControllerTools;
+	}
+
+	private static class AControllerToolsHolder {
+		private static AbleController mControllerTools = new AbleController();
+	}
+
 
 	public boolean isAdevice(BleDevice bleDeviceBean) {
 		return "A00".equals(bleDeviceBean.getName());
@@ -121,7 +130,7 @@ public class AbleController extends BaseControllerTools{
 
 	@Override
 	public void onDisConnected(boolean isActiveDisConnected, BleDevice device, BluetoothGatt gatt, int status) {
-			device =null;
+		device = null;
 	}
 
 	@Override
