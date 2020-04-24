@@ -6,7 +6,9 @@
 
 ## 此库的核心用运用eventbus 对Jasonchenlijian/FastBle 进行拓展  
 
-## 使用 : implementation 'com.github.dazuoit:ZuoExpandFastBle:v1.1'
+ 使用 : implementation 'com.github.dazuoit:ZuoExpandFastBle:v1.1'  
+ 	implementation 'com.clj.fastble:FastBleLib:2.3.4'  
+        implementation 'org.greenrobot:eventbus:3.2.0'  
 
 ## 步骤
 1,每种设备都有一个控制器(读写数据不同),一个控制器可以多连接 (比如 有A,B两种ble, 都要求可多连接 ,可以同时连接多个A,并且同时连接多个B,此时建议用a,b个控制器)
